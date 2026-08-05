@@ -1,0 +1,9 @@
+.metric-grid {
+    margin: 0 0 16px;
+}
+
+.dashboard-lists .panel-title a {
+    color: #234f6d;
+    font-size: 9px;
+    font-weight: 800;
+}
