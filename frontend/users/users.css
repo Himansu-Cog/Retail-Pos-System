@@ -1,0 +1,88 @@
+.user-summary {
+    margin-bottom: 16px
+}
+
+.user-toolbar {
+    padding: 15px 17px;
+    display: grid;
+    grid-template-columns: minmax(170px, 1fr) minmax(230px, 360px) 170px auto;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #bfcfd9
+}
+
+.user-toolbar h2 {
+    margin: 0;
+    color: #183f5b;
+    font-size: 15px
+}
+
+.user-toolbar p {
+    margin: 4px 0 0;
+    color: var(--slate-500);
+    font-size: 9px
+}
+
+.user-toolbar .search-wrap {
+    width: 100%
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 9px
+}
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #aac0cf;
+    border-radius: 9px;
+    background: #dcebf2;
+    color: #244f6b;
+    font-size: 8px;
+    font-weight: 800
+}
+
+.user-cell div {
+    display: grid;
+    gap: 3px
+}
+
+.user-cell small {
+    color: var(--slate-400);
+    font-size: 8px
+}
+
+.role-badge {
+    display: inline-flex;
+    padding: 5px 8px;
+    border: 1px solid #b6cad7;
+    border-radius: 7px;
+    background: #edf5f8;
+    color: #214b66;
+    font-size: 8px;
+    font-weight: 800
+}
+
+@media(max-width:950px) {
+    .user-toolbar {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .user-toolbar>div:first-child {
+        grid-column: 1/-1
+    }
+}
+
+@media(max-width:600px) {
+    .user-toolbar {
+        grid-template-columns: 1fr
+    }
+
+    .user-toolbar>div:first-child {
+        grid-column: auto
+    }
+}

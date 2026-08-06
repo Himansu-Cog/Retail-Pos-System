@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Users | Retail System</title>
+    <link rel="stylesheet" href="../common/css/frost.css?v=9">
+    <link rel="stylesheet" href="users.css?v=9">
+    <script defer src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+    <script defer src="../common/js/api.js?v=9"></script>
+    <script defer src="../common/js/validation.js?v=9"></script>
+    <script defer src="../common/js/layout.js?v=9"></script>
+    <script defer src="users.js?v=9"></script>
+</head>
+
+<body data-page="users">
+    <div id="app-header"></div>
+    <main class="page-shell">
+        <section class="frost-panel">
+            <div class="user-toolbar">
+                <div>
+                    <h2>User access management</h2>
+                    <p id="user-count">Loading accounts...</p>
+                </div>
+                <div class="search-wrap"><span>&#128269;</span><input id="user-search"
+                        placeholder="Search name or username"></div><button id="add-user" class="btn btn-primary">+ Add user</button>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <dialog id="user-modal" class="modal">
+        <form id="user-form">
+            <div class="modal-head">
+                <h2 id="user-modal-title">Add user</h2><button type="button" class="icon-btn"
+                    id="user-close">&times;</button>
+            </div>
+            <div class="modal-body form-grid"><input type="hidden" id="user-id"><label>Full name<input id="full-name"
+                        required maxlength="100" pattern="[A-Za-z][A-Za-z .'\-]*"
+                        title="Use letters only."></label><label>Username<input id="user-name" required minlength="3"
+                        maxlength="50" pattern="[A-Za-z][A-Za-z0-9._\-]*"
+                        title="Start with a letter."></label><label>Email<input id="email" type="email" required
+                        maxlength="120"></label><label>Password<input id="user-password" type="password" minlength="6"
+                        maxlength="100"></label><label>Role<select id="user-role" required>
+                        <option value="ADMIN">Admin</option><option value="STORE_MANAGER">Store manager</option>
+                        <option value="CASHIER">Cashier</option>
+                        <option value="INVENTORY_ASSOCIATE">Inventory associate</option>
+                    </select></label><label>Status<select id="user-active">
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+                    </select></label></div>
+            <div class="modal-actions"><button type="button" id="user-cancel"
+                    class="btn btn-secondary">Cancel</button><button class="btn btn-primary">Save user</button></div>
+        </form>
+    </dialog>
+    <div id="global-loader" class="global-loader">
+        <div class="loader-ring"></div>
+    </div>
+</body>
+
+</html>
