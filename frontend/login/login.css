@@ -1,0 +1,230 @@
+.login-page {
+    display: grid;
+    place-items: center;
+    padding: 28px;
+}
+
+.login-shell {
+    width: min(1080px, 100%);
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    overflow: hidden;
+    border: 1px solid rgba(205, 217, 228, .9);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .65);
+    box-shadow: 0 30px 90px rgba(45, 65, 87, .13);
+    backdrop-filter: blur(24px);
+}
+
+.login-context {
+    padding: 46px;
+    display: flex;
+    flex-direction: column;
+    background: #e8f0f5;
+    border-right: 1px solid rgba(205, 217, 228, .8);
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.login-brand>span {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #c9d8e3;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .75);
+    color: #496983;
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: var(--shadow-sm);
+}
+
+.login-brand div {
+    display: grid;
+}
+
+.login-brand strong {
+    font-size: 17px;
+}
+
+.login-brand small {
+    margin-top: 3px;
+    color: var(--slate-400);
+    font-size: 9px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.context-copy {
+    margin: auto 0;
+    max-width: 480px;
+}
+
+.context-copy p,
+.form-heading p {
+    margin: 0 0 12px;
+    color: #6d899f;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.context-copy h1 {
+    margin: 0 0 18px;
+    color: #25384c;
+    font-size: 43px;
+    line-height: 1.12;
+    letter-spacing: -1.8px;
+}
+
+.context-copy>span {
+    color: var(--slate-500);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.context-grid article {
+    padding: 14px;
+    border: 1px solid rgba(204, 216, 227, .82);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .52);
+}
+
+.context-grid strong,
+.context-grid span {
+    display: block;
+}
+
+.context-grid strong {
+    font-size: 17px;
+}
+
+.context-grid span {
+    margin-top: 5px;
+    color: var(--slate-400);
+    font-size: 8px;
+    text-transform: uppercase;
+}
+
+.login-form-side {
+    display: grid;
+    place-items: center;
+    padding: 45px;
+    background: rgba(255, 255, 255, .72);
+}
+
+.login-card {
+    width: min(380px, 100%);
+    display: grid;
+    gap: 16px;
+}
+
+.form-heading {
+    margin-bottom: 12px;
+}
+
+.form-heading h2 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: -.9px;
+}
+
+.form-heading>span {
+    display: block;
+    margin-top: 8px;
+    color: var(--slate-500);
+    font-size: 11px;
+}
+
+.login-card input {
+    height: 44px;
+}
+
+.login-card .btn {
+    height: 44px;
+    margin-top: 3px;
+}
+
+.login-error {
+    min-height: 15px;
+    margin: -5px 0;
+    color: var(--danger);
+    font-size: 10px;
+}
+
+.demo-box {
+    position: relative;
+    padding: 14px;
+    display: grid;
+    border: 1px solid var(--ice-200);
+    border-radius: 12px;
+    background: rgba(244, 247, 250, .75);
+}
+
+.demo-box div {
+    display: grid;
+}
+
+.demo-box strong {
+    font-size: 10px;
+}
+
+.demo-box small {
+    margin-top: 3px;
+    color: var(--slate-400);
+    font-size: 8px;
+}
+
+.demo-box button {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+    padding: 5px 8px;
+    border: 1px solid var(--ice-300);
+    border-radius: 6px;
+    background: white;
+    color: var(--frost-accent-dark);
+    font-size: 8px;
+    cursor: pointer;
+}
+
+.demo-box code {
+    margin-top: 11px;
+    color: var(--slate-500);
+    font-size: 10px;
+}
+
+.security-note {
+    margin: 3px 0 0;
+    color: var(--slate-400);
+    font-size: 8px;
+    text-align: center;
+}
+
+@media(max-width:800px) {
+    .login-shell {
+        grid-template-columns: 1fr;
+        min-height: 0
+    }
+
+    .login-context {
+        display: none
+    }
+
+    .login-form-side {
+        padding: 45px 25px;
+        min-height: 620px
+    }
+}
