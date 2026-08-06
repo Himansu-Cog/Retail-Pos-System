@@ -124,6 +124,4 @@ mvn package
 - [MySQL Workbench setup](docs/MYSQL-WORKBENCH-SETUP.md)
 
 ## Author
-
-Sriganesh Sureshkumar  
-Software Engineer
+Himanshu Joshi
