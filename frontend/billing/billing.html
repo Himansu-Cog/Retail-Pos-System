@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Billing | Retail System</title>
+    <link rel="stylesheet" href="../common/css/frost.css?v=9">
+    <link rel="stylesheet" href="billing.css?v=9">
+    <script defer src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+    <script defer src="../common/js/api.js?v=9"></script>
+    <script defer src="../common/js/layout.js?v=9"></script>
+    <script defer src="billing.js?v=9"></script>
+</head>
+<body data-page="billing">
+    <div id="app-header"></div>
+    <main class="page-shell billing-shell">
+        <section class="billing-layout">
+            <article class="frost-panel search-panel panel-padding">
+                <h2 class="section-kicker">Add products</h2>
+                <label>Search by product name
+                    <input id="billing-search" placeholder="Type a product name">
+                </label>
+                <div id="product-results" class="product-results"></div>
+            </article>
+            <article class="frost-panel basket-panel">
+                <div class="panel-padding basket-heading">
+                    <h2 class="section-kicker">Shopping cart</h2>
+                </div>
+                <div class="table-wrap"><table>
+                    <thead><tr><th>Product</th><th>Price</th><th>Quantity</th>
+                        <th>Total</th><th>Action</th></tr></thead>
+                    <tbody id="cart-items"></tbody>
+                </table></div>
+                <div class="basket-actions">
+                    <button id="clear-cart" class="btn btn-secondary">Clear cart</button>
+                </div>
+            </article>
+            <aside class="frost-panel summary-panel panel-padding">
+                <h2 class="section-kicker">Bill summary</h2>
+                <div class="bill-summary">
+                    <div><span>Subtotal</span><strong id="subtotal">&#8377;0.00</strong></div>
+                    <div><span>Coupon discount</span><strong id="discount-total">-&#8377;0.00</strong></div>
+                    <div><span>Tax</span><strong id="tax-total">&#8377;0.00</strong></div>
+                    <div class="bill-total"><span>Total</span><strong id="grand-total">&#8377;0.00</strong></div>
+                </div>
+                <div class="coupon-box"><label>Coupon<select id="coupon-select"><option value="">Select coupon</option></select></label>
+                    <div><button id="apply-coupon" class="btn btn-secondary">Apply</button>
+                    <button id="remove-coupon" class="btn btn-danger" disabled>Remove</button></div>
+                    <small id="coupon-message">No coupon applied</small></div>
+                <fieldset id="payment-modes"><legend>Payment mode</legend>
+                    <label class="payment-option">Cash<input type="radio" name="payment" value="CASH" checked></label>
+                    <label class="payment-option">Card<input type="radio" name="payment" value="CARD"></label>
+                    <label class="payment-option">UPI<input type="radio" name="payment" value="UPI"></label>
+                </fieldset>
+                <button id="checkout" class="btn btn-primary btn-block">Complete sale</button>
+            </aside>
+        </section>
+    </main>
+    <dialog id="receipt-modal" class="modal receipt-modal">
+        <div class="modal-head"><h2>Sale receipt</h2></div>
+        <div id="receipt-content" class="modal-body receipt-paper"></div>
+        <div class="modal-actions receipt-actions">
+            <button id="print-receipt" class="btn btn-secondary">Print</button>
+            <button id="receipt-confirm" class="btn btn-primary">Confirm</button>
+            <button id="receipt-cancel" class="btn btn-secondary">Cancel</button>
+        </div>
+    </dialog>
+    <div id="global-loader" class="global-loader"><div class="loader-ring"></div></div>
+    <script defer src="billing-checkout.js?v=9"></script>
+</body>
+</html>
