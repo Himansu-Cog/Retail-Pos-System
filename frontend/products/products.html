@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Products | Retail System</title>
+    <link rel="stylesheet" href="../common/css/frost.css?v=9">
+    <link rel="stylesheet" href="products.css?v=9">
+    <script defer src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+    <script defer src="../common/js/api.js?v=9"></script>
+    <script defer src="../common/js/validation.js?v=9"></script>
+    <script defer src="../common/js/layout.js?v=9"></script>
+    <script defer src="products.js?v=9"></script>
+</head>
+
+<body data-page="products">
+    <div id="app-header"></div>
+    <main class="page-shell">
+        <section class="product-workspace">
+            <article class="frost-panel create-panel">
+                <form id="product-form" class="panel-padding">
+                    <h2 class="section-kicker">Provision new product</h2>
+                    <label>Product name<input id="name" required maxlength="120"
+                            pattern="[A-Za-z][A-Za-z0-9 .&amp;'()\-]*" title="Start with a letter."
+                            placeholder="e.g. Organic Milk 1L"><small class="field-help">Must begin with a
+                            letter.</small></label>
+                    <label>Category<select id="category" required>
+                        <option value="GROCERY">Grocery</option><option value="BEVERAGES">Beverages</option>
+                        <option value="DAIRY">Dairy</option><option value="BAKERY">Bakery</option>
+                        <option value="SNACKS">Snacks</option><option value="PERSONAL_CARE">Personal care</option>
+                        <option value="HOME_CARE">Home care</option><option value="ELECTRONICS">Electronics</option>
+                        <option value="OTHER">Other</option>
+                    </select></label>
+                    <div class="form-grid"><label>Price (&#8377;)<input id="price" type="number" min="0.01" step="0.01"
+                                required></label><label>Opening quantity<input id="quantity" type="number" min="0"
+                                step="1" required value="0"></label></div>
+                    <label>Supplier master<input id="supplier" required maxlength="120"
+                            pattern="[A-Za-z][A-Za-z0-9 .&amp;'()\-]*" title="Start with a letter."
+                            placeholder="e.g. Amul Dairy"></label>
+                    <div class="form-grid"><label>Safety threshold<input id="threshold" type="number" min="0" step="1"
+                                required value="10"></label><label>Status<select id="status" required>
+                                    <option value="ACTIVE">Active</option><option value="INACTIVE">Inactive</option>
+                                    <option value="DISCONTINUED">Discontinued</option>
+                                </select></label>
+                    </div>
+                    <div class="form-actions"><button type="reset" class="btn btn-secondary">Clear</button><button
+                            class="btn btn-primary">Save product</button></div>
+                </form>
+            </article>
+            <article class="frost-panel catalogue-panel">
+                <div class="catalogue-toolbar">
+                    <div class="search-wrap"><span>&#128269;</span><input id="product-search"
+                            placeholder="Search product name or supplier"></div>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Barcode</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-body"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </main>
+    <div id="global-loader" class="global-loader">
+        <div class="loader-ring"></div>
+    </div>
+</body>
+
+</html>
