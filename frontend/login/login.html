@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | Retail System</title>
+    <link rel="stylesheet" href="../common/css/frost.css?v=9">
+    <link rel="stylesheet" href="login.css?v=9">
+    <script defer src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+    <script defer src="../common/js/api.js?v=9"></script>
+    <script defer src="../common/js/validation.js?v=9"></script>
+    <script defer src="login.js?v=9"></script>
+</head>
+
+<body class="login-page">
+    <main class="login-shell">
+        <section class="login-context">
+            <a class="login-brand" href="login.html"><span>RS</span>
+                <div><strong>Retail System</strong><small>Store Operations</small></div>
+            </a>
+            <div class="context-copy">
+                <p>FROST RETAIL WORKSPACE</p>
+                <h1>Calm operations.<br>Clear decisions.</h1>
+                <span>Billing, inventory, teams and reporting brought together in one focused workspace.</span>
+            </div>
+            <div class="context-grid">
+                <article><strong>POS</strong><span>Fast billing</span></article>
+                <article><strong>RBAC</strong><span>Secure access</span></article>
+                <article><strong>LIVE</strong><span>Store operations</span></article>
+            </div>
+        </section>
+        <section class="login-form-side">
+            <form id="login-form" class="login-card">
+                <div class="form-heading">
+                    <p>SECURE ACCESS</p>
+                    <h2>Sign in to your store</h2>
+                    <span>Use your Retail System account to continue.</span>
+                </div>
+                <label>Username
+                    <input id="username" name="username" autocomplete="username" placeholder="Enter username" required
+                        minlength="3" maxlength="50" pattern="[A-Za-z][A-Za-z0-9._\-]*" title="Start with a letter.">
+                </label>
+                <label>Password
+                    <input id="password" name="password" type="password" autocomplete="current-password"
+                        placeholder="Enter password" required minlength="6">
+                </label>
+                <p id="login-error" class="login-error" role="alert"></p>
+                <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+                <p class="security-note">Session secured with Spring Security and BCrypt</p>
+            </form>
+        </section>
+    </main>
+    <div id="global-loader" class="global-loader">
+        <div class="loader-ring"></div>
+    </div>
+</body>
+
+</html>
