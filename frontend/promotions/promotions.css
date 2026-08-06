@@ -1,0 +1,80 @@
+.promotion-summary {
+    margin-bottom: 14px
+}
+
+.promotion-workspace {
+    display: grid;
+    grid-template-columns: minmax(380px, 420px) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start
+}
+
+.editor-panel {
+    align-self: start;
+    border-color: #9fb8c8;
+    background: rgba(249, 252, 254, .9)
+}
+
+.editor-panel form {
+    display: grid;
+    gap: 12px;
+    padding: 22px
+}
+
+.form-actions {
+    padding-top: 13px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    border-top: 1px solid #c5d3dc
+}
+
+.rules-panel {
+    min-height: 540px;
+    overflow: hidden
+}
+
+.catalogue-toolbar {
+    padding: 14px;
+    border-bottom: 1px solid #bdced9
+}
+
+.catalogue-toolbar .search-wrap {
+    width: 100%
+}
+
+.rules-panel .table-wrap {
+    max-height: 475px;
+    overflow: auto
+}
+
+.rules-panel th {
+    position: sticky;
+    top: 0;
+    z-index: 2
+}
+
+.promotion-name {
+    display: grid;
+    gap: 3px
+}
+
+.promotion-name small {
+    color: var(--slate-400);
+    font-size: 8px
+}
+
+.promotion-code {
+    font-family: Consolas, monospace;
+    color: #264d68
+}
+
+.scope-text {
+    color: var(--slate-700)
+}
+
+@media(max-width:950px) {
+    .promotion-workspace {
+        grid-template-columns: 1fr
+    }
+}

@@ -1,0 +1,17 @@
+.report-filter{padding:16px;display:grid;grid-template-columns:180px 180px 1fr;align-items:end;gap:12px}
+.report-actions{display:flex;justify-content:flex-end;gap:8px}
+.report-summary{margin:14px 0}
+.report-summary .metric-card>span,.report-summary .metric-card>strong{display:block}
+.report-summary .metric-card>span{font-size:11px;text-transform:uppercase}
+.report-summary .metric-card>strong{margin-top:10px;font-size:22px}
+.settlements{margin-top:16px}
+.report-table{min-height:260px}
+.report-table .table-wrap{max-height:430px;overflow:auto}
+.report-table th{position:sticky;top:0;z-index:2}
+.report-table th:last-child,.report-table td:last-child,.settlements th:nth-child(n+3),
+.settlements td:nth-child(n+3){text-align:right}
+.report-table td,.settlements td{vertical-align:middle}
+.settlements .table-wrap{max-height:330px;overflow:auto}
+@media(max-width:900px){.report-filter{grid-template-columns:1fr 1fr}.report-actions{flex-wrap:wrap}}
+@media(max-width:600px){.report-filter{grid-template-columns:1fr}.report-actions{display:grid}.report-actions .btn{width:100%}}
+@media print{.frost-header,.report-filter,.report-summary,.settlements,.row-btn{display:none!important}.page-shell{padding:0}.report-table{border:0;box-shadow:none}.report-table .table-wrap{max-height:none}}
