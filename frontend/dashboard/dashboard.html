@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Retail System</title>
+    <link rel="stylesheet" href="../common/css/frost.css?v=9">
+    <link rel="stylesheet" href="dashboard.css?v=9">
+    <script defer src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+    <script defer src="../common/js/api.js?v=9"></script>
+    <script defer src="../common/js/layout.js?v=9"></script>
+    <script defer src="dashboard.js?v=9"></script>
+</head>
+
+<body data-page="dashboard">
+    <div id="app-header"></div>
+    <main class="page-shell">
+        <section id="metric-grid" class="grid grid-4 metric-grid"></section>
+        <section class="grid grid-2 dashboard-lists">
+            <article class="frost-panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Low stock</h2>
+                        <p>Products requiring attention</p>
+                    </div><a href="../inventory/inventory.html">View inventory &rarr;</a>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Available</th>
+                                <th>Reorder at</th>
+                            </tr>
+                        </thead>
+                        <tbody id="low-stock-body"></tbody>
+                    </table>
+                </div>
+            </article>
+            <article class="frost-panel">
+                <div class="panel-title">
+                    <div>
+                        <h2>Recent transactions</h2>
+                        <p>Latest completed store activity</p>
+                    </div><a href="../reports/reports.html">View reports &rarr;</a>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Receipt</th>
+                                <th>Cashier</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-body"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </main>
+    <div id="global-loader" class="global-loader">
+        <div class="loader-ring"></div>
+    </div>
+</body>
+
+</html>
