@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Inventory | Retail System</title>
+    <link rel="stylesheet" href="../common/css/frost.css?v=9">
+    <link rel="stylesheet" href="inventory.css?v=9">
+    <script defer src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+    <script defer src="../common/js/api.js?v=9"></script>
+    <script defer src="../common/js/validation.js?v=9"></script>
+    <script defer src="../common/js/layout.js?v=9"></script>
+    <script defer src="inventory.js?v=9"></script>
+</head>
+<body data-page="inventory">
+    <div id="app-header"></div>
+    <main class="page-shell">
+        <section class="grid grid-4 inventory-summary">
+            <article class="metric-card metric-navy"><span>Total products</span><strong id="total-products">0</strong></article>
+            <article class="metric-card metric-green"><span>In stock</span><strong id="in-stock">0</strong></article>
+            <article class="metric-card metric-amber"><span>Low stock</span><strong id="low-stock">0</strong></article>
+            <article class="metric-card metric-red"><span>Out of stock</span><strong id="out-stock">0</strong></article>
+        </section>
+        <section class="toolbar frost-panel inventory-toolbar">
+            <div class="search-wrap">
+                <span>&#128269;</span>
+                <input id="inventory-search" placeholder="Search product name or supplier">
+            </div>
+            <select id="stock-filter">
+                <option value="">All stock levels</option>
+                <option value="healthy">In stock</option>
+                <option value="low">Low stock</option>
+                <option value="out">Out of stock</option>
+            </select>
+        </section>
+        <section class="inventory-workspace">
+            <article class="frost-panel ledger-panel">
+                <div class="panel-title"><div>
+                    <h2>Current stock</h2>
+                    <p id="inventory-count">Loading inventory...</p>
+                </div></div>
+                <div class="table-wrap"><table>
+                    <thead><tr><th>Product</th><th>Supplier</th><th>Price</th>
+                        <th>Stock</th><th>Threshold</th><th>Status</th><th>Action</th></tr></thead>
+                    <tbody id="inventory-body"></tbody>
+                </table></div>
+            </article>
+            <aside class="frost-panel edit-panel">
+                <form id="stock-form" class="panel-padding">
+                    <h2 class="section-kicker">Update stock</h2>
+                    <label>Product name<input id="selected-product" required minlength="2" maxlength="120"
+                        pattern="[A-Za-z][A-Za-z0-9 .&amp;'()\-]*" title="Start with a letter"></label>
+                    <input id="selected-inventory-id" type="hidden">
+                    <input id="selected-product-id" type="hidden">
+                    <div class="stock-action"><button type="button" class="active" data-action="ADD">Add stock</button>
+                        <button type="button" data-action="REMOVE">Remove stock</button></div>
+                    <div class="form-grid compact-fields"><label>Quantity<input id="stock-change" type="number"
+                        min="1" step="1" required></label><label>Reason<select id="stock-reason" required>
+                            <option value="NEW_STOCK_DELIVERY">New delivery</option>
+                            <option value="CUSTOMER_RETURN">Customer return</option>
+                            <option value="DAMAGED_STOCK">Damaged stock</option>
+                            <option value="STOCK_CORRECTION">Stock correction</option>
+                        </select></label></div>
+                    <label>Low stock level<input id="stock-threshold" type="number" min="0" step="1" required></label>
+                    <label>Remarks<textarea id="stock-remarks" required maxlength="500"></textarea></label>
+                    <button class="btn btn-primary btn-block">Save stock</button>
+                </form>
+            </aside>
+        </section>
+    </main>
+    <div id="global-loader" class="global-loader"><div class="loader-ring"></div></div>
+</body>
+</html>
