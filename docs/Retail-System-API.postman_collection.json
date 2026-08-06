@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "Retail System API",
+    "description": "Session-based REST collection. Run Login first; Postman retains JSESSIONID.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://127.0.0.1:8081/api"},
+    {"key": "productId", "value": "1"},
+    {"key": "inventoryId", "value": "1"},
+    {"key": "promotionId", "value": "1"},
+    {"key": "transactionId", "value": "1"},
+    {"key": "settlementId", "value": "1"},
+    {"key": "userId", "value": "1"}
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {"name": "Login", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/x-www-form-urlencoded"}], "body": {"mode": "urlencoded", "urlencoded": [{"key": "username", "value": "admin"}, {"key": "password", "value": "password"}]}, "url": "{{baseUrl}}/auth/login"}},
+        {"name": "Current User", "request": {"method": "GET", "url": "{{baseUrl}}/auth/me"}},
+        {"name": "Logout", "request": {"method": "POST", "url": "{{baseUrl}}/auth/logout"}}
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {"name": "Dashboard", "request": {"method": "GET", "url": "{{baseUrl}}/dashboard"}}
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {"name": "List Products", "request": {"method": "GET", "url": "{{baseUrl}}/products?search=&page=0&size=10"}},
+        {"name": "Get Product", "request": {"method": "GET", "url": "{{baseUrl}}/products/{{productId}}"}},
+        {"name": "Create Product", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"name\":\"Organic Milk 1L\",\"supplierMaster\":\"Green Dairy\",\"category\":\"DAIRY\",\"price\":68.00,\"productStatus\":\"ACTIVE\"}"}, "url": "{{baseUrl}}/products?quantity=20&threshold=5"}}
+      ]
+    },
+    {
+      "name": "Inventory",
+      "item": [
+        {"name": "List Inventory", "request": {"method": "GET", "url": "{{baseUrl}}/inventory"}},
+        {"name": "Low Stock", "request": {"method": "GET", "url": "{{baseUrl}}/inventory/low-stock"}},
+        {"name": "Stock Logs", "request": {"method": "GET", "url": "{{baseUrl}}/inventory/logs"}},
+        {"name": "Update Product and Inventory", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"name\":\"India Gate Basmati Rice\",\"supplierMaster\":\"India Gate Foods\",\"category\":\"GROCERY\",\"price\":699.00,\"productStatus\":\"ACTIVE\"}"}, "url": "{{baseUrl}}/inventory/{{inventoryId}}?quantity=50&threshold=12&reason=NEW_STOCK_DELIVERY&remarks=Supplier%20delivery"}},
+        {"name": "Adjust Quantity", "request": {"method": "POST", "url": "{{baseUrl}}/inventory/adjust?productId={{productId}}&change=5&reason=STOCK_CORRECTION&remarks=Cycle%20count"}}
+      ]
+    },
+    {
+      "name": "Billing",
+      "item": [
+        {"name": "List Transactions", "request": {"method": "GET", "url": "{{baseUrl}}/transactions"}},
+        {"name": "Checkout", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"paymentMode\":\"CASH\",\"items\":[{\"product\":{\"id\":1},\"quantity\":1}]}"}, "url": "{{baseUrl}}/transactions?promotionId={{promotionId}}"}},
+        {"name": "Cancel Transaction", "request": {"method": "PUT", "url": "{{baseUrl}}/transactions/{{transactionId}}/status?status=CANCELLED"}}
+      ]
+    },
+    {
+      "name": "Promotions",
+      "item": [
+        {"name": "List Promotions", "request": {"method": "GET", "url": "{{baseUrl}}/promotions"}},
+        {"name": "Create Promotion", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"code\":\"FRESH10\",\"name\":\"Fresh Food Offer\",\"description\":\"Training offer\",\"discountPercentage\":10,\"startDate\":\"2026-07-30T09:00:00\",\"endDate\":\"2026-08-30T22:00:00\",\"status\":\"ACTIVE\",\"minimumPurchase\":100,\"applicableCategory\":\"GROCERY\"}"}, "url": "{{baseUrl}}/promotions"}},
+        {"name": "Delete Promotion", "request": {"method": "DELETE", "url": "{{baseUrl}}/promotions/{{promotionId}}"}}
+      ]
+    },
+    {
+      "name": "Reports & Settlement",
+      "item": [
+        {"name": "Sales Report", "request": {"method": "GET", "url": "{{baseUrl}}/reports/sales?startDate=2026-07-01&endDate=2026-07-31"}},
+        {"name": "List Settlements", "request": {"method": "GET", "url": "{{baseUrl}}/reports/settlements"}},
+        {"name": "Create Settlement", "request": {"method": "POST", "url": "{{baseUrl}}/reports/settlements?date=2026-07-30&cashierId=3&notes=End%20of%20day"}},
+        {"name": "Delete Settlement", "request": {"method": "DELETE", "url": "{{baseUrl}}/reports/settlements/{{settlementId}}"}}
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {"name": "List Users", "request": {"method": "GET", "url": "{{baseUrl}}/users?page=0&size=10"}},
+        {"name": "Create User", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"username\":\"cashier2\",\"fullName\":\"Kavya Rao\",\"email\":\"kavya@retailflow.local\",\"password\":\"password\",\"role\":\"CASHIER\",\"active\":true}"}, "url": "{{baseUrl}}/users"}},
+        {"name": "Delete User", "request": {"method": "DELETE", "url": "{{baseUrl}}/users/{{userId}}"}}
+      ]
+    }
+  ]
+}
