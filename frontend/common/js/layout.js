@@ -8,8 +8,8 @@
         const cashier = ['ADMIN', 'STORE_MANAGER', 'CASHIER'].includes(role);
         const links = [
             ['dashboard', 'Dashboard', '../dashboard/dashboard.html', true],
-            ['products', 'Products', '../products/products.html', true],
-            ['inventory', 'Inventory', '../inventory/inventory.html', true],
+            ['products', 'Products', '../products/products.html', manager],
+            ['inventory', 'Inventory', '../inventory/inventory.html', manager],
             ['billing', 'Billing', '../billing/billing.html', cashier],
             ['promotions', 'Promotions', '../promotions/promotions.html', manager],
             ['reports', 'Reports', '../reports/reports.html', manager],
