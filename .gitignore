@@ -7,3 +7,4 @@ target/
 .env
 uploads/
 application-local.properties
+.maven-cache
